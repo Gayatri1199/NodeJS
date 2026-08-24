@@ -9,7 +9,7 @@ const userRouter = express.Router();
 const {registeredHome} = require('./hostRouter') 
 userRouter.get("/",(req,res,next)=>{
   console.log("registeredHomes==>",registeredHome)
-  res.sendFile(path.join(__dirname,"../","views","home.html"));
+  res.render("home",{registeredHome});
 })
 
 module.exports = userRouter;
