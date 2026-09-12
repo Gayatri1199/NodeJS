@@ -22,6 +22,14 @@ exports.getFavList = (req, res, next) => {
 
 exports.getHomeDetails = (req, res, next) => {
   const homeID = req.params.homeId;
+  Home.findById(homeID,home=>{
+    if(!home){
+      console.log("Home not found");
+      res.redirect("/homes")
+    }
+    console.log("Home Details Found==>",home);
+    res.render("store/home-details")
+  })
   console.log("HomeID==>",homeID)
-   res.render("store/home-details")
+   
 };
